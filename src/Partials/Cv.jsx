@@ -1,5 +1,7 @@
 import { useState } from "react";
 import unnamed from "../assets/unnamed.jpg";
+import ibims from "../assets/ibims.png";
+import cra from "../assets/cra.png";
 
 const data = {
   name: "John Xedric B. Alejo",
@@ -11,7 +13,7 @@ const data = {
     github: "https://github.com/seideeX",
   },
   objective:
-    "To obtain an entry-level position in the Information Technology field where I can apply my technical knowledge, contribute to organizational goals, and continuously develop my professional skills in a dynamic work environment.",
+    "Motivated and dedicated Bachelor of Science in Information Technology graduate seeking an opportunity to apply technical skills, leadership experience, and problem-solving abilities to contribute effectively to organizational success while continuously developing professionally.",
   experience: [
     {
       id: 1,
@@ -19,23 +21,47 @@ const data = {
       org: "Philippine Information Technology of the North (PiTON)",
       period: "AY 2025–2026",
       point:
-        "Led a student IT organization promoting technology education and organizing academic and technical activities.",
+        "Led a student IT organization dedicated to promoting technology education, professional development, and innovation among students. Organized academic programs, technical workshops, seminars, and technology-related events while coordinating with faculty members, industry professionals, and student leaders.",
     },
     {
       id: 2,
-      title: "Resource Speaker – IT Specialist: Databases Training",
-      org: "Ifugao State University & ISU Campuses",
-      period: "2025",
+      title: "Information Technology Intern (OJT)",
+      org: "Schools Division Office – City of Ilagan, ICT Unit",
+      period: "2025–2026",
       point:
-        "Delivered database programming lectures and facilitated hands-on training sessions across ISU Cabagan and ISU Ilagan.",
+        "Provided technical support and ICT services, including computer troubleshooting, printer maintenance, software installation, system configuration, and network assistance. Participated in the development of Project TALA, a centralized time and attendance logging system, performing database design, coding, testing, debugging, biometric device integration, and system optimization.",
     },
     {
       id: 3,
+      title: "Resource Speaker – IT Specialist: Database Training",
+      org: "Ifugao State University (IFSU) Potia Campus",
+      period: "2025",
+      point:
+        "Conducted lectures and hands-on training sessions on database concepts, database design, SQL, and application development. Guided students through practical exercises and real-world database implementation techniques.",
+    },
+    {
+      id: 4,
+      title: "Resource Speaker – IT Specialist: Database Training",
+      org: "Isabela State University (ISU) Cabagan Campus",
+      period: "2025",
+      point:
+        "Delivered specialized database programming training and workshops, focusing on database management systems, data modeling, and database-driven application development. Facilitated interactive learning activities to strengthen students' technical competencies.",
+    },
+    {
+      id: 5,
       title: "Research Presenter",
       org: "International Conference on Sustainable Health, Education, and Technology",
-      period: "",
+      period: "2025",
       point:
-        "Presented a research paper at an international conference, demonstrating strong analytical and communication skills.",
+        "Presented a research paper at an international academic conference, demonstrating strong research, analytical, public speaking, and technical communication skills while engaging with researchers and professionals from various disciplines.",
+    },
+    {
+      id: 6,
+      title: "Two-Time Champion – Database Application Development",
+      org: "ICT Roadshow Competitions",
+      period: "2024–2025",
+      point:
+        "Earned consecutive championship titles in Database Application Development competitions during 2024 and 2025. Designed and developed database-driven applications, showcasing proficiency in database management, system analysis, programming, and technical presentation.",
     },
   ],
   projects: [
@@ -47,7 +73,7 @@ const data = {
       tags: ["Laravel", "React", "PHP", "GitHub"],
       github: "https://github.com/your-username/ibims",
       // Replace with an actual screenshot URL or import
-      image: null,
+      image: ibims,
     },
     {
       id: 2,
@@ -57,7 +83,7 @@ const data = {
       tags: ["PHP", "Laravel", "MySQL", "GitHub"],
       github: "https://github.com/your-username/cdrrmo",
       // Replace with an actual screenshot URL or import
-      image: null,
+      image: cra,
     },
   ],
   education: [
@@ -65,14 +91,30 @@ const data = {
       id: 1,
       degree: "Bachelor of Science in Information Technology",
       school: "Isabela State University – Ilagan Campus",
-      period: "2022 – Present",
+      address: "Calamagui 2nd, City of Ilagan, Isabela",
+      period: "2022 – 2026",
     },
     {
       id: 2,
-      degree: "Secondary – TECH-VOC Strand",
+      degree: "Senior High School – STEM Strand",
+      school: "Isabela National High School - INHS",
+      address: "San Vicente, City of Ilagan, Isabela",
+      period: "2020 – 2022",
+    },
+    {
+      id: 3,
+      degree: "Junior High School",
       school:
-        "San Antonio National Agro-Industrial and Vocational High School, City of Ilagan, Isabela",
-      period: "2016 – 2022",
+        "San Antonio National Agro-Industrial and Vocational High School - SANAIVHS",
+      address: "Centro San Antonio, City of Ilagan, Isabela",
+      period: "2016 – 2020",
+    },
+    {
+      id: 4,
+      degree: "Primary Education",
+      school: "San Antonio Elementary School",
+      address: "Centro San Antonio, City of Ilagan, Isabela",
+      period: "2009 – 2016",
     },
   ],
   skills: [
@@ -163,7 +205,7 @@ export default function AlejoCV() {
               />
             ) : (
               <div className="w-24 h-24 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-3xl font-medium text-slate-500">
-                JA
+                JXA
               </div>
             )}
           </div>
@@ -206,7 +248,7 @@ export default function AlejoCV() {
 
         {/* ── Projects ───────────────────────────────────── */}
         <section className="mb-10">
-          <SectionHeader title="Projects" />
+          <SectionHeader title="Major Projects" />
           <div className="grid sm:grid-cols-2 gap-4">
             {data.projects.map((p) => (
               <div
@@ -312,17 +354,22 @@ export default function AlejoCV() {
             {data.education.map((e) => (
               <div
                 key={e.id}
-                className="flex flex-wrap justify-between items-baseline gap-1 py-3"
+                className="flex flex-wrap justify-between items-start gap-2 py-4"
               >
-                <div>
+                <div className="flex-1 min-w-0">
                   <p className="text-[13px] font-semibold text-white">
                     {e.degree}
                   </p>
-                  <p className="text-[12px] text-slate-400 mt-0.5">
+                  <p className="text-[12px] text-slate-300 mt-0.5">
                     {e.school}
                   </p>
+                  <p className="text-[11px] text-slate-500 mt-0.5">
+                    {e.address}
+                  </p>
                 </div>
-                <span className="text-[11px] text-slate-500">{e.period}</span>
+                <span className="text-[11px] text-slate-500 shrink-0 pt-0.5">
+                  {e.period}
+                </span>
               </div>
             ))}
           </div>

@@ -1,5 +1,4 @@
-import { useState } from "react";
-import unnamed from "../assets/unnamed.jpg";
+import unnamed from "../assets/me2.jpg";
 import ibims from "../assets/ibims.png";
 import cra from "../assets/cra.png";
 

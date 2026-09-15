@@ -1,4 +1,4 @@
-import unnamed from "../assets/me2.jpg";
+import unnamed from "../assets/me22.jpg";
 import ibims from "../assets/ibims.png";
 import cra from "../assets/cra.png";
 

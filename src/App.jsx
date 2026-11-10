@@ -7,7 +7,18 @@ import {
   useParams,
   useLocation,
 } from "react-router-dom";
-import { Sun, Moon, Menu, X, Network, Mail, Search } from "lucide-react";
+import {
+  Sun,
+  Moon,
+  Menu,
+  X,
+  Network,
+  Search,
+  Download,
+  Link2,
+  Mail,
+  SearchCode,
+} from "lucide-react";
 import {
   profile,
   skills,
@@ -518,10 +529,12 @@ function Home() {
             <p className="muted max-w-xl mt-5 text-lg">{profile.intro}</p>
             <div className="flex flex-wrap gap-3 mt-8">
               <Link to="/#projects" className="btn btn-primary">
-                Explore projects
+                <SearchCode size={16} className="inline mr-1" /> Explore
+                projects
               </Link>
               {profile.resumeUrl && (
                 <a className="btn" href={profile.resumeUrl} download>
+                  <Download size={16} className="inline mr-1" />
                   Download resume
                 </a>
               )}
@@ -644,38 +657,96 @@ function Home() {
       </Section>
 
       <Section id="contact" title="Contact">
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="space-y-2 text-sm">
-            <p className="muted">{profile.location}</p>
-            <p>
-              <a className="accent" href={`mailto:${profile.email}`}>
-                {profile.email}
-              </a>
+        <div className="grid md:grid-cols-2 gap-6">
+          {/* Availability */}
+          <div className="card p-6">
+            <p className="status-pill">
+              <span className="status-dot" aria-hidden="true" />
+              Available for opportunities
             </p>
-            <p>
-              <a
-                className="accent"
-                href={profile.github}
-                target="_blank"
-                rel="noreferrer"
-              >
-                GitHub
-              </a>
+            <h3 className="text-xl font-semibold mt-4">
+              Let's build something together
+            </h3>
+            <p className="muted text-sm mt-2">
+              I'm a fresh BSIT graduate looking for my first software
+              development role. I'm happy to talk about web apps, databases, or
+              collaboration.
             </p>
-            {profile.linkedin && (
-              <p>
+
+            <h4 className="text-sm font-semibold mt-5 mb-2">Open to</h4>
+            <div>
+              {[
+                "Full-stack roles",
+                "Junior developer",
+                "Internships",
+                "Freelance projects",
+                "Remote work",
+              ].map((r) => (
+                <span className="badge" key={r}>
+                  {r}
+                </span>
+              ))}
+            </div>
+
+            <p className="text-sm muted mt-5">📍 {profile.location}</p>
+          </div>
+
+          {/* Connect links */}
+          <div className="card p-6">
+            <h3 className="text-xl font-semibold">Find me online</h3>
+            <ul className="mt-4 space-y-3">
+              <li>
                 <a
-                  className="accent"
-                  href={profile.linkedin}
+                  className="link-row"
+                  href={profile.github}
                   target="_blank"
                   rel="noreferrer"
                 >
-                  LinkedIn
+                  <Network size={18} />
+                  <span>
+                    <strong>GitHub</strong>
+                    <small className="muted block">
+                      See my code and projects
+                    </small>
+                  </span>
+                  <span className="accent ml-auto">→</span>
                 </a>
-              </p>
-            )}
+              </li>
+              {profile.linkedin && (
+                <li>
+                  <a
+                    className="link-row"
+                    href={profile.linkedin}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <Link2 size={18} />
+                    <span>
+                      <strong>LinkedIn</strong>
+                      <small className="muted block">
+                        Let's connect professionally
+                      </small>
+                    </span>
+                    <span className="accent ml-auto">→</span>
+                  </a>
+                </li>
+              )}
+              {profile.resumeUrl && (
+                <li>
+                  <a className="link-row" href={profile.resumeUrl} download>
+                    <Download size={18} />
+                    <span>
+                      <strong>Resume</strong>
+                      <small className="muted block">
+                        Download my CV (PDF)
+                      </small>
+                    </span>
+                    <span className="accent ml-auto">↓</span>
+                  </a>
+                </li>
+              )}
+            </ul>
           </div>
-          <ContactForm />
         </div>
       </Section>
     </main>
